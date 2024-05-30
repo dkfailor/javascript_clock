@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>David Failor JS Clock</title>
+<meta charset = "UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+.butt{
+color:blue;
+font-weight:strong;
+background-color:lime;
+//display:flex;
+text-align:center;
+width:35px;
+height:35px;
+}
+
+
+</style>
+</head>
+<body>
+
+<p id = "p1">Paragraph 1</p>
+<p id = "p2">Paragraph 2</p>
+<button id = "btnMo" class = "butt">Month</button>
+<button id = "btnDa"  class = "butt">Day</button>
+<button id = "btnYr"  class = "butt">Year</button>
+<button id = "btnSe"  class = "butt">Seconds</button>
+<script>
+
+
+getDate = () => 
+{
+const d = new Date();
+const dates = d.toLocaleString();
+document.getElementById('p1').innerHTML = dates;
+const seca = d.getSeconds();
+document.getElementById('btnSe').innerText = seca;
+}
+
+setInterval(getDate, 1000);
+const efg = new Date();
+mina = efg.toLocaleDateString();
+bird = mina.slice(0,mina.indexOf("/"));
+if(bird < 10){bird = "0" + bird;};
+chirps = mina.slice(mina.indexOf("/") + 1, mina.indexOf("/") + 3);
+if (chirps < 10){chirps = "0" + chirps};
+nest = mina.slice(mina.indexOf("/") + 6, mina.indexOf("/") + 8);
+document.getElementById('p2').innerHTML = bird + chirps + nest;
+document.getElementById('btnMo').innerText  = bird;
+document.getElementById('btnDa').innerText  = chirps;
+document.getElementById('btnYr').innerText  = nest;
+/*async function getDate(){
+	const d = new Date();
+	const dates = d.toLocaleString();
+	document.getElementById('p1').innerHTML = dates;
+} */
+
+
+
+</script>
+</body>
+</html>
